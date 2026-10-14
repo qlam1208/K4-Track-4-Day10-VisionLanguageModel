@@ -6,7 +6,7 @@
   "cuda_available": false,
   "browser_colab": "Sign in link shown; no authenticated GPU runtime available",
   "cpu_tests": {
-    "result": "88 passed, 1 deselected",
+    "result": "89 passed, 1 deselected",
     "real_dataset_integration": true,
     "deselected": "tests/test_configs_and_docs.py::test_report_template_has_student_markers_and_ten_questions",
     "reason": "Provided test expects the unfinished REPORT placeholder which check_submission forbids"

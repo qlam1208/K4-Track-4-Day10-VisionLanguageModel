@@ -134,3 +134,18 @@ def test_real_tiny_qwen_backward_has_llm_vit_and_projector_gradients():
     assert any('.visual.blocks.' in n and 'lora_' in n for n in nonzero)
     assert any(is_projector(n) for n in nonzero)
     assert all(p.grad is None for n,p in m.named_parameters() if not p.requires_grad)
+
+
+def test_completed_resume_returns_checkpoint_without_retraining(tmp_path):
+    from student_vlm.training import train
+    config=config_for('E2')
+    data=tmp_path/'data/splits';data.mkdir(parents=True)
+    (data/'train.jsonl').write_text('{"image_id":"not-used"}\n')
+    (data/'meta.json').write_text('{"dataset_version":"unit-checkpoint-only"}')
+    checkpoint=tmp_path/'finished';checkpoint.mkdir()
+    (checkpoint/'adapter').mkdir()
+    (checkpoint/'projector.pt').touch()
+    (checkpoint/'run.json').write_text(json.dumps(dict(config=config,dataset_version='unit-checkpoint-only',step=300)))
+    assert train(config,data_root=tmp_path/'data',resume=checkpoint)==checkpoint
+    (checkpoint/'projector.pt').unlink()
+    with pytest.raises(FileNotFoundError):train(config,data_root=tmp_path/'data',resume=checkpoint)

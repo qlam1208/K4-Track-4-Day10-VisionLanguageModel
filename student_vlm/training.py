@@ -45,6 +45,17 @@ def train(config, *, data_root='data', output_root='work', resume=None, checkpoi
     if fraction < 1:
         order = np.random.default_rng(cfg['seed']).permutation(len(records))
         records = [records[int(i)] for i in order[:max(1,round(len(records)*fraction))]]
+    if resume:
+        prior=json.loads((Path(resume)/'run.json').read_text())
+        version=json.loads((Path(data_root)/'splits/meta.json').read_text())['dataset_version']
+        if prior['config'] != cfg or prior['dataset_version'] != version:
+            raise ValueError('Resume requires the same config and dataset version')
+        if prior['step'] == cfg['max_steps']:
+            if not (Path(resume)/'adapter').is_dir():
+                raise FileNotFoundError('Completed checkpoint is missing its adapter')
+            if cfg['train_projector'] and not (Path(resume)/'projector.pt').exists():
+                raise FileNotFoundError('Completed checkpoint is missing its projector')
+            return Path(resume)
     model,processor = load_base(cfg['model_id'])
     model,setup = apply_setup(model,cfg)
     if resume:
