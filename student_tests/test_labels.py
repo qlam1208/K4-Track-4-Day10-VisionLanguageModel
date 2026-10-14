@@ -42,3 +42,15 @@ def test_reward_duplicate_and_giant_box_cannot_win():
     giant='[{"label":"pothole","bbox_2d":[0,0,1000,1000]}]'
     assert iou_reward(giant,GT) == .2
     assert ground_truth([{'label':'pothole','yolo':[.2,.2,.2,.2]}])[0]['bbox'] == pytest.approx(GT[0]['bbox'])
+
+
+def test_posthoc_error_flags_and_paired_bootstrap():
+    from student_vlm.analysis import error_images,paired_f1_interval
+    record={'image_id':'one','width':640,'height':360,
+            'objects':[{'label':'pothole','yolo':[.2,.2,.2,.2]}]}
+    correct={'one':GOOD};empty={'one':'[]'}
+    result=paired_f1_interval([record],empty,correct,n_boot=10)
+    assert result['difference_b_minus_a']==1 and result['ci95']==[1,1]
+    wrong={'one':GOOD.replace('pothole','crack')}
+    flags=error_images([record],wrong)
+    assert flags['wrong_class']==1 and flags['missed_gt']==1

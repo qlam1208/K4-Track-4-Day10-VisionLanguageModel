@@ -1,5 +1,7 @@
 # Lab Day 10: Finetune Qwen3-VL-4B (LoRA) để định vị hư hại mặt đường
 
+**Bản của Đinh Quang Lâm · MSSV 202602875:** đã triển khai notebook/code và kiểm tra dữ liệu/CPU. **Chưa có E0–E4 chạy GPU; chưa đủ điều kiện nộp.** Xem [RUNNING.md](RUNNING.md) và [mở notebook Colab T4](https://colab.research.google.com/github/qlam1208/K4-Track-4-Day10-VisionLanguageModel/blob/main/lab_day10.ipynb). `report/diagnostics` và ảnh GT chỉ là QA, không phải kết quả model.
+
 > Track 4 · Ngày 10 · *Nhãn, auto-labeling và Vision–Language Model* · **bài cá nhân** · ≈ 4 giờ trên **Google Colab T4 (miễn phí)**
 > Bạn **tự viết** phần huấn luyện và suy luận theo pseudo code trong [`GUIDE.md`](GUIDE.md). Công cụ chia dữ liệu và chấm điểm do giảng viên viết sẵn và **không được sửa**.
 

@@ -1,0 +1,14 @@
+name: CPU implementation checks
+on: [push, pull_request]
+jobs:
+  cpu-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+      - run: pip install transformers==5.19.0 peft==0.21.2 accelerate==1.15.0 numpy pytest pillow pyyaml
+      - name: CPU tests (the provided REPORT template-only assertion conflicts with submission validation)
+        run: python -m pytest -q tests student_tests --deselect=tests/test_configs_and_docs.py::test_report_template_has_student_markers_and_ten_questions

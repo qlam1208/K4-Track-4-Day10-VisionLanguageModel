@@ -1,5 +1,6 @@
 """QLoRA setup, module checks and complete projector checkpoint round-trips."""
 import json
+import math
 import re
 from pathlib import Path
 
@@ -23,8 +24,11 @@ def block_counts(model):
     for name,p in model.named_parameters():
         key = ('projector' if is_projector(name) else 'vit' if '.visual.' in name
                else 'llm' if '.language_model.' in name or name.startswith('lm_head.') else 'other')
-        counts[key] += p.numel()
-        counts['total'] += p.numel()
+        quant_state=getattr(p,'quant_state',None)
+        original_shape=getattr(quant_state,'shape',None)
+        count=math.prod(original_shape) if original_shape is not None else p.numel()
+        counts[key] += count
+        counts['total'] += count
     return counts
 
 

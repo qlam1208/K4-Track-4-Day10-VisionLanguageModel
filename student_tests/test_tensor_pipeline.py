@@ -105,13 +105,15 @@ def test_projector_is_saved_and_restored_separately(tmp_path):
     m,_=apply_setup(tiny_model(),config_for('E2'))
     with torch.no_grad():
         for n,p in m.named_parameters():
-            if is_projector(n):p.fill_(.125)
+            if is_projector(n):p.fill_(.1234567)
     processor=type('Processor',(),{'save_pretrained':lambda self,p:None})()
     save_checkpoint(m,processor,tmp_path,{'config':config_for('E2')})
-    reloaded=PeftModel.from_pretrained(tiny_model(),tmp_path/'adapter')
+    reloaded=PeftModel.from_pretrained(tiny_model().half(),tmp_path/'adapter')
     restore_projector(reloaded,tmp_path,required=True)
     for n,p in reloaded.named_parameters():
-        if is_projector(n):assert torch.all(p==.125)
+        if is_projector(n):
+            assert p.dtype==torch.float32
+            assert torch.equal(p,torch.full_like(p,.1234567))
     (tmp_path/'projector.pt').unlink()
     with pytest.raises(FileNotFoundError):restore_projector(reloaded,tmp_path,required=True)
 
