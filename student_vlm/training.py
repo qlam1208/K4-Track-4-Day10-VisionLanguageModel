@@ -141,7 +141,7 @@ def train(config, *, data_root='data', output_root='work', resume=None, checkpoi
                                 run,opt,scaler,schedule)
     (out/'run.json').write_text(json.dumps(run,indent=2))
     final=out/f"step-{cfg['max_steps']:04d}"
-    del model,opt,params,batch,loss
+    del model,opt,params,batch,loss,schedule,scaler,ds,iterator,loader
     import gc
     gc.collect()
     torch.cuda.empty_cache()

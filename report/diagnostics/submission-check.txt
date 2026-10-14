@@ -1,0 +1,12 @@
+[FAIL] evidence e0 — thiếu report/evidence/e0.json
+[FAIL] evidence e1 — thiếu report/evidence/e1.json
+[FAIL] evidence e2 — thiếu report/evidence/e2.json
+[FAIL] evidence e3 — thiếu report/evidence/e3.json
+[FAIL] evidence e4 — cần ít nhất một file e4*.json
+[PASS] dataset_version nhất quán — []
+[PASS] khớp data/splits/meta.json
+[PASS] REPORT.md đã điền — còn chuỗi '<điền'
+[PASS] git commits — 5/5
+[PASS] git forbidden files
+
+5 FAIL, 0 WARN

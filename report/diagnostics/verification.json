@@ -1,0 +1,52 @@
+{
+  "status": "gpu_experiments_pending",
+  "student": "Đinh Quang Lâm",
+  "mssv": "202602875",
+  "dataset_version": "d10-21e4070301",
+  "cuda_available": false,
+  "browser_colab": "Sign in link shown; no authenticated GPU runtime available",
+  "cpu_tests": {
+    "result": "88 passed, 1 deselected",
+    "real_dataset_integration": true,
+    "deselected": "tests/test_configs_and_docs.py::test_report_template_has_student_markers_and_ten_questions",
+    "reason": "Provided test expects the unfinished REPORT placeholder which check_submission forbids"
+  },
+  "notebook_code_cells": "all compile; no YOUR CODE HERE",
+  "submission_failures": [
+    {
+      "check": "evidence e0",
+      "detail": "thiếu report/evidence/e0.json"
+    },
+    {
+      "check": "evidence e1",
+      "detail": "thiếu report/evidence/e1.json"
+    },
+    {
+      "check": "evidence e2",
+      "detail": "thiếu report/evidence/e2.json"
+    },
+    {
+      "check": "evidence e3",
+      "detail": "thiếu report/evidence/e3.json"
+    },
+    {
+      "check": "evidence e4",
+      "detail": "cần ít nhất một file e4*.json"
+    }
+  ],
+  "model_training_and_test_inference_executed": false,
+  "original_scripts_tests_sha256": {
+    "scripts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scripts/check_submission.py": "c4a872d46ebbbdafed98683d2c7fabf4afac3a1f64bd0ae7f5125725ba9f0c27",
+    "scripts/labcommon.py": "77cc2bacd559c1040bdf7df831d3d8b6fbc58e5f5a4ffe7d998c056b0bcc0582",
+    "scripts/make_notebook.py": "bb63a6568c33b64df122bbec8b051b074a64afa596a3dd69e689480f88870d26",
+    "scripts/prepare_data.py": "c1dce60d2ddab83b8751575af06c35542d66e70b26229fd86f1e689c8012db2e",
+    "scripts/score.py": "f07cd495542f7572dc51abf078a0a51559155c105c2bf12dbe796a0131fc38cb",
+    "scripts/splitting.py": "e935f60b0145950e68cc05ae9f8d81338a2096d5d14761cc4b9b290a3580d67f",
+    "tests/test_check_submission.py": "47b0e8264fcc6e2a68eea677e2a99804e1616b7f8951b825ec55284420a30797",
+    "tests/test_configs_and_docs.py": "997a3931136f6506a4c70982a1d9d0840442945f58ff5308ec396ad98d092c03",
+    "tests/test_prepare_data.py": "071fbceb8b3c3c0ee2143df1fb5ea7be6bcecaeacba4d680d42f38db347a3de5",
+    "tests/test_score.py": "23437ffac657c36612bb48af7c63ae9446e4490b739a152073cd04a9032ee9e8",
+    "tests/test_splitting.py": "6d2ac0b9a8df0568d2d101086a18dea846e8a2944512ae64807e99550ea79b43"
+  }
+}
