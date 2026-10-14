@@ -1,0 +1,39 @@
+{
+  "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+  "source": "actual processor and actual train images; no inference/training",
+  "image_ids": [
+    "20250216_164325",
+    "20250216_164521"
+  ],
+  "vision_tokens": [
+    220,
+    220
+  ],
+  "supervised_text": "[{\"label\":\"crack\",\"bbox_2d\":[430,467,583,506]},{\"label\":\"pothole\",\"bbox_2d\":[361,475,414,522]},{\"label\":\"manhole\",\"bbox_2d\":[317,481,616,625]},{\"label\":\"pothole\",\"bbox_2d\":[583,500,627,614]},{\"label\":\"crack\",\"bbox_2d\":[580,508,655,614]},{\"label\":\"pothole\",\"bbox_2d\":[259,517,311,572]},{\"label\":\"crack\",\"bbox_2d\":[397,628,447,717]},{\"label\":\"crack\",\"bbox_2d\":[339,683,398,808]},{\"label\":\"crack\",\"bbox_2d\":[158,789,361,994]}]<|im_end|>\n",
+  "batch_shapes": {
+    "input_ids": [
+      2,
+      601
+    ],
+    "attention_mask": [
+      2,
+      601
+    ],
+    "labels": [
+      2,
+      601
+    ],
+    "mm_token_type_ids": [
+      2,
+      601
+    ],
+    "pixel_values": [
+      1760,
+      1536
+    ],
+    "image_grid_thw": [
+      2,
+      3
+    ]
+  }
+}

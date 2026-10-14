@@ -1,0 +1,126 @@
+{
+  "kind": "hand-constructed geometry unit check, NOT Qwen inference or E4 test evidence",
+  "ground_truth": {
+    "image_id": "geometry-unit-case",
+    "width": 640,
+    "height": 360,
+    "objects": [
+      {
+        "label": "pothole",
+        "yolo": [
+          0.5,
+          0.5,
+          0.2,
+          0.4
+        ]
+      }
+    ]
+  },
+  "raw": "[{\"label\":\"pothole\",\"bbox_2d\":[400,300,600,700]}]",
+  "correct_norm1000": {
+    "n_images": 1,
+    "parse_valid_rate": 1.0,
+    "missing_predictions": 0,
+    "micro": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "per_class": {
+      "pothole": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "crack": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      "manhole": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      "other": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "mean_iou": 1.0,
+    "fp_per_image": 0.0,
+    "f1_ci95": [
+      1.0,
+      1.0
+    ]
+  },
+  "wrong_pixel_interpretation": {
+    "n_images": 1,
+    "parse_valid_rate": 1.0,
+    "missing_predictions": 0,
+    "micro": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1
+    },
+    "per_class": {
+      "pothole": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 1,
+        "fn": 1
+      },
+      "crack": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      "manhole": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      "other": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "mean_iou": 0.0,
+    "fp_per_image": 1.0,
+    "f1_ci95": [
+      0.0,
+      0.0
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "dataset_version": "d10-21e4070301",
+  "counts": {
+    "train": {
+      "images": 1422,
+      "boxes": {
+        "pothole": 1074,
+        "crack": 1750,
+        "manhole": 691
+      },
+      "sessions": 13
+    },
+    "val": {
+      "images": 276,
+      "boxes": {
+        "pothole": 66,
+        "crack": 470,
+        "manhole": 103
+      },
+      "sessions": 2
+    },
+    "test": {
+      "images": 311,
+      "boxes": {
+        "pothole": 121,
+        "crack": 299,
+        "manhole": 163
+      },
+      "sessions": 3
+    }
+  },
+  "session_overlap": false,
+  "source": "scripts/prepare_data.py on the public Kaggle dataset; measured locally",
+  "figures_kind": "ground truth only: not model predictions"
+}

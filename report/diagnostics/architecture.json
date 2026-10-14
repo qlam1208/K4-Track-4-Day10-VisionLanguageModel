@@ -1,0 +1,46 @@
+{
+  "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+  "source": "actual Transformers 5.19.0 model instantiated on torch meta device; no pretrained weights loaded",
+  "counts": {
+    "llm": 4022468096,
+    "vit": 306242560,
+    "projector": 109105152,
+    "other": 0,
+    "total": 4437815808
+  },
+  "setups": {
+    "E1": {
+      "block_counts": {
+        "llm": 4022468096,
+        "vit": 306242560,
+        "projector": 109105152,
+        "other": 0,
+        "total": 4437815808
+      },
+      "trainable_params": 33030144,
+      "matched_module_count": 252
+    },
+    "E2": {
+      "block_counts": {
+        "llm": 4022468096,
+        "vit": 306242560,
+        "projector": 109105152,
+        "other": 0,
+        "total": 4437815808
+      },
+      "trainable_params": 142135296,
+      "matched_module_count": 252
+    },
+    "E3": {
+      "block_counts": {
+        "llm": 4022468096,
+        "vit": 306242560,
+        "projector": 109105152,
+        "other": 0,
+        "total": 4437815808
+      },
+      "trainable_params": 148426752,
+      "matched_module_count": 348
+    }
+  }
+}
