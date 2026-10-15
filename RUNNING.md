@@ -1,7 +1,7 @@
 # Chạy bài Day 10
 
 **Hiện tại: triển khai và CPU/data checks đã có; E0–E4 chưa được chạy trên GPU.**
-Không có CUDA trên máy chuẩn bị repo, và trình duyệt Colab chưa đăng nhập. Vì vậy
+Không có CUDA trên máy chuẩn bị repo, và chưa chạy được thí nghiệm Colab. Vì vậy
 `report/evidence/e0.json`…`e4*.json` chưa tồn tại; `check_submission.py` còn FAIL.
 Các file `report/diagnostics/` và ảnh `gt_train_*` là QA dữ liệu/cấu trúc, không phải kết quả model.
 
@@ -14,6 +14,7 @@ checkpoint mỗi 100 bước lưu `latest` mỗi setup trên Drive để tránh 
 ## CLI trên máy có CUDA
 
 ```bash
+python -m pip uninstall -y torchao  # optional Colab package; NF4 uses bitsandbytes
 pip install -r requirements-colab.txt pytest
 python scripts/prepare_data.py --zip 'https://www.kaggle.com/api/v1/datasets/download/lorenzoarcioni/road-damage-dataset-potholes-cracks-and-manholes'
 python -m student_vlm inspect
@@ -69,3 +70,12 @@ nhưng không copy checkpoint. Sau `student_vlm report`, đọc ảnh lỗi và 
 trong REPORT.md. `check_submission.py` phải không còn FAIL, repo có ≥5 commit.
 Commit `REPORT.md`, notebook/code, `report/evidence/`, `report/figures/` và log nhẹ; không commit data/work,
 Kaggle/HF key, optimizer, adapter hay projector tensors. Notebook tạo zip kết quả nhẹ và lưu Drive.
+
+## Lỗi torchao trên Colab
+
+Nếu PEFT báo `Found an incompatible version of torchao ... 0.10.0`, chạy lại cell
+môi trường của notebook mới nhất: cell gỡ torchao trước khi import model và chạy test.
+Torchao là backend tùy chọn; bài dùng bitsandbytes NF4 nên không cần cài/nâng cấp nó.
+Giữ nguyên phiên bản PyTorch/CUDA có sẵn trên Colab. Nếu đã import PEFT/torchao trong
+kernel trước đó, khởi động lại phiên Python sau khi gỡ rồi chạy lại từ đầu.
+Cell cũng dùng `git pull --ff-only` để cập nhật checkout cũ mà không ghi đè chỉnh sửa local.
